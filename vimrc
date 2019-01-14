@@ -43,14 +43,12 @@ Plugin 'kien/ctrlp.vim'
 " :vim /patern/ * | copen 当前目录下的
 " :vim /patern/ ./ui/** | copen 当前目录下ui文件夹下及子目录的所有文件
 " 当前目录下ui和test文件夹下及子目录的所有文件
-" :vim /patern/ ./ui/** ./test/**| copen
+" :vim /patern/ ./ui/** ./test/**| copen 
 
 " 在文件之间切换
 " :bn	下一个文件
 " :bp	上一个文件
 
-" 异步语法检查
-Plugin 'w0rp/ale'
 
 " 在此之前添加插件
 call vundle#end()
@@ -154,9 +152,12 @@ set statusline=%1*%t%m%r%h%w%=\ [%Y]\ %{\"[\".(&fenc==\"\"?&enc:&fenc).
 			\[%l,%v][%p%%]
 hi User1 ctermbg=black  ctermfg=243
 
-let g:ale_fix_on_save = 1
-let g:ale_fixers = {
-			\'*': ['remove_trailing_lines', 'trim_whitespace'],
-			\}
-let g:ale_linters = {'python': ['pylint']}
-let g:deoplete#enable_at_startup=1
+" 记录上次打开的位置
+if has("autocmd")
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" 工程管理 :mksession! xxx.vim
+" vim -S xxx.vim
+nnoremap <leader>m :mksession!
+
