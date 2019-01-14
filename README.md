@@ -12,4 +12,6 @@ Vundle安装方式:
 
 > git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
+可以 ./vundleInstall.sh 直接安装
+
 
