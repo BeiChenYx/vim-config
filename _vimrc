@@ -1,42 +1,73 @@
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-" 在此添加插件
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" Make sure you use single quotes
+" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
+Plug 'junegunn/vim-easy-align'
+
+" Any valid git URL is allowed
+Plug 'https://github.com/junegunn/vim-github-dashboard.git'
+
+" Multiple Plug commands can be written in a single line using | separators
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
+" On-demand loading
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
+Plug 'tpope/vim-fireplace', { 'for': 'clojure'  }
+
+" Using a non-master branch
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'  }
+
+" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
+Plug 'fatih/vim-go', { 'tag': '*'  }
+
+" Plugin options
+Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim'  }
+
+" Plugin outside ~/.vim/plugged with post-update hook
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+
+" Unmanaged plugin (manually installed and updated)
+Plug '~/my-prototype-plugin'"
 
 " vim 中文帮助文档
 "Plugin 'yianwillis/vimcdoc'
 
 " 目录树
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
 
 " qml
-Plugin 'crucerucalin/qml.vim'
+Plug 'crucerucalin/qml.vim'
 
 " 主题颜色
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " 缩进线
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " 括号匹配
-Plugin 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'
 
 " 补全跳转
-Plugin 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe'
+" 预览窗口管理
+Plug 'skywind3000/vim-preview'
 
 " html
-Plugin 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 
 " 代码折叠
-Plugin 'tmhedberg/SimpylFold'
+Plug 'tmhedberg/SimpylFold'
 
 " pep8缩进
-Plugin 'vim-scripts/indentpython.vim'
+Plug 'vim-scripts/indentpython.vim'
 
 
 " 超级搜索
-Plugin 'kien/ctrlp.vim'
+Plug 'kien/ctrlp.vim'
 " c-p查找
 " vim自带的查找
 " :vim /patern/ ** | copen 当前目录下及子目录所有文件
@@ -49,9 +80,8 @@ Plugin 'kien/ctrlp.vim'
 " :bn	下一个文件
 " :bp	上一个文件
 
-
 " 在此之前添加插件
-call vundle#end()
+call plug#end()
 
 " 设置leader
 let mapleader='\'
@@ -121,9 +151,9 @@ nnoremap <leader>a :vertical resize -5<CR>
 nnoremap <leader>w :resize +5<CR>
 nnoremap <leader>s :resize -5<CR>
 " 默认的窗口快捷方式
-" <C-W>=    均分窗口
-" <C-|>		垂直分屏的最大化窗口
-" <C-_>		水平分屏的最大化窗口
+" <C-w>=    均分窗口
+" <C-w>|	垂直分屏的最大化窗口
+" <C-w>_	水平分屏的最大化窗口
 
 " 配置emmet
 let g:user_emmet_leader_key = '<leader>'
@@ -144,7 +174,7 @@ nnoremap <leader>c :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>r :YcmCompleter GoToReferences<CR>
 nnoremap <leader>o :YcmCompleter GetDoc<CR>
 " 关闭 GetDoc的窗口
-nnoremap <leader>q <C-W>k :q<CR>
+nnoremap <leader>q :PreviewClose<CR>
 
 " 状态栏设置
 set statusline=%1*%t%m%r%h%w%=\ [%Y]\ %{\"[\".(&fenc==\"\"?&enc:&fenc).
