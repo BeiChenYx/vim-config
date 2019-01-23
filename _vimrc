@@ -3,22 +3,6 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Make sure you use single quotes
-" Shorthand notation; fetches https://github.com/junegunn/vim-easy-align
-Plug 'junegunn/vim-easy-align'
-
-" Any valid git URL is allowed
-Plug 'https://github.com/junegunn/vim-github-dashboard.git'
-
-" Multiple Plug commands can be written in a single line using | separators
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-
-" Plugin outside ~/.vim/plugged with post-update hook
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-
-" Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'"
-
 " vim 中文帮助文档
 "Plugin 'yianwillis/vimcdoc'
 
@@ -79,7 +63,6 @@ let mapleader='\'
 " 主题
 set background=dark
 colorscheme solarized
-let g:airline_theme='solarized'
 
 " 代码折叠用SimpylFold配合使用, za折叠和取消折叠
 set foldmethod=indent
@@ -125,9 +108,6 @@ let NERDTreeWinSize=30
 "缩进指示线"
 let g:indentLine_char='|'
 let g:indentLine_enabled = 1
-
-"autopep8设置"
-let g:autopep8_disable_show_diff=1
 
 " 窗口移动
 nnoremap <C-J> <C-W>j
@@ -183,3 +163,6 @@ nnoremap <leader>m :mksession!
 " ale 语法检查设置, 需要 pip install pylint
 let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace']}
 let g:ale_linters = {'python': ['pylint']}
+
+" auto-pairs
+let g:AutoPairsFlyMode = 1
