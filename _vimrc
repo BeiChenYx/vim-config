@@ -38,7 +38,7 @@ Plug 'vim-scripts/indentpython.vim'
 
 " 超级搜索
 Plug 'kien/ctrlp.vim'
-" c-p查找
+" c-p查找, 然后ctrl + [jk] 上下移动, enter确认打开
 " vim自带的查找
 " :vim /patern/ ** | copen 当前目录下及子目录所有文件
 " :vim /patern/ * | copen 当前目录下的
