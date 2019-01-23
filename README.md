@@ -6,12 +6,10 @@ vim 版本为 8.0
 
 # 安装方法
 
-只保存配置文件，安装好了vundle后可以用vim的PluginInstall安装
+Plug插件管理文件， 安装方法:
 
-Vundle安装方式:
+> ./vimplugInstall.sh
 
-> git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# wsltty的安装
 
-可以 ./vundleInstall.sh 直接安装
-
-
+[wsltty](./wsltty.md) 安装和配置，设置 solarized-dark 主题，主要用于win10系统的linux子系统
