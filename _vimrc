@@ -13,19 +13,6 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Multiple Plug commands can be written in a single line using | separators
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-" On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
-Plug 'tpope/vim-fireplace', { 'for': 'clojure'  }
-
-" Using a non-master branch
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'  }
-
-" Using a tagged release; wildcard allowed (requires git 1.9.2 or above)
-Plug 'fatih/vim-go', { 'tag': '*'  }
-
-" Plugin options
-Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim'  }
-
 " Plugin outside ~/.vim/plugged with post-update hook
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 
@@ -65,7 +52,6 @@ Plug 'tmhedberg/SimpylFold'
 " pep8缩进
 Plug 'vim-scripts/indentpython.vim'
 
-
 " 超级搜索
 Plug 'kien/ctrlp.vim'
 " c-p查找
@@ -74,11 +60,14 @@ Plug 'kien/ctrlp.vim'
 " :vim /patern/ * | copen 当前目录下的
 " :vim /patern/ ./ui/** | copen 当前目录下ui文件夹下及子目录的所有文件
 " 当前目录下ui和test文件夹下及子目录的所有文件
-" :vim /patern/ ./ui/** ./test/**| copen 
+" :vim /patern/ ./ui/** ./test/**| copen
 
 " 在文件之间切换
 " :bn	下一个文件
 " :bp	上一个文件
+
+" 语法检查
+Plug 'w0rp/ale'
 
 " 在此之前添加插件
 call plug#end()
@@ -191,3 +180,6 @@ endif
 " vim -S xxx.vim
 nnoremap <leader>m :mksession!
 
+" ale 语法检查设置, 需要 pip install pylint
+let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace']}
+let g:ale_linters = {'python': ['pylint']}
