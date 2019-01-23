@@ -45,6 +45,8 @@ Plug 'kien/ctrlp.vim'
 " :vim /patern/ ./ui/** | copen 当前目录下ui文件夹下及子目录的所有文件
 " 当前目录下ui和test文件夹下及子目录的所有文件
 " :vim /patern/ ./ui/** ./test/**| copen
+" 查找替换 :%s/old/new/gc
+" :ls 显示已经打开的文件, 会显示文件号，然后 :b文件号，就完成了文件切换
 
 " 在文件之间切换
 " :bn	下一个文件
@@ -166,3 +168,4 @@ let g:ale_linters = {'python': ['pylint']}
 
 " auto-pairs
 let g:AutoPairsFlyMode = 1
+
