@@ -77,7 +77,7 @@ syntax enable  				" 开启语法高亮
 set encoding=utf-8			" 设置编码
 set nocompatible        	" 去掉vi的一致性
 set number   				" 显示行号
-set nowrap    				" 设置不折行
+"set nowrap    				" 设置不折行
 set fileformat=unix     	" 设置以unix的格式保存文件
 set smartindent    			" 智能选择对齐方式
 set tabstop=4    			" 设置table长度
@@ -159,8 +159,18 @@ if has("autocmd")
 endif
 
 " 工程管理 :mksession! xxx.vim
-" vim -S xxx.vim
-nnoremap <leader>m :mksession!
+" vim -S .vim
+" \-m 保存session到.vim中
+" vim 离开也会自动保存.vim
+" 在工程第一次创建保存使用 \-m 创建.vim文件，
+" 之后会在vim关闭时自动保存当前状态到.vim文件中
+nnoremap <leader>m :exe "mksession! .vim"<CR>
+function SaveSession()
+	if v:this_session != ""
+		exe "mksession! .vim"
+	endif
+endfunction
+au VimLeavePre * call SaveSession()
 
 " ale 语法检查设置, 需要 pip install pylint
 let g:ale_fixers = {'python': ['remove_trailing_lines', 'trim_whitespace']}
