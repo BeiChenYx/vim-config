@@ -55,6 +55,7 @@ Plug 'kien/ctrlp.vim'
 " 语法检查
 Plug 'w0rp/ale'
 
+
 " 在此之前添加插件
 call plug#end()
 
@@ -179,3 +180,5 @@ let g:ale_linters = {'python': ['pylint']}
 " auto-pairs
 let g:AutoPairsFlyMode = 1
 
+" vim 将当前行置为屏幕首行，中行，尾行的方法分别为：
+" normal模式: zt, zz, zb
