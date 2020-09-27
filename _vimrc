@@ -127,7 +127,7 @@ nnoremap <leader>s :resize -5<CR>
 " <C-w>|	垂直分屏的最大化窗口
 " <C-w>_	水平分屏的最大化窗口
 
-" 配置emmet
+" 配置emmet, 用<leader> + , 补全
 let g:user_emmet_leader_key = '<leader>'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -180,5 +180,3 @@ let g:ale_linters = {'python': ['pylint']}
 " auto-pairs
 let g:AutoPairsFlyMode = 1
 
-" vim 将当前行置为屏幕首行，中行，尾行的方法分别为：
-" normal模式: zt, zz, zb
