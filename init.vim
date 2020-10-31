@@ -1,50 +1,31 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+" 插件和快捷键说明 --start
 
-" vim 启动窗口
-Plug 'mhinz/vim-startify'
-" 目录树
-Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/nerdcommenter'
-" 主题颜色
-Plug 'altercation/vim-colors-solarized'
-" 状态栏
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" 缩进线
-Plug 'Yggdroot/indentLine'
-" 代码折叠
-Plug 'tmhedberg/SimpylFold'
+" 插件: tpope/vim-surround 
+" 成对编辑, 主要用来增加, 修改, 删除成对内容, 比如 'xxx' xxx的两边的单引号
+" ds 删除成对内容, 如: ds '  删除xxx两边的单引号
+" cs 修改成对内容, 如: cs " ' xxx 的两边的 双引号变成单引号, cs ( ] xxx 两边的圆括号变成方括号
+" ys 添加成对内容, 如: ys iw " 给 xxx 添加双引号
+
+" 插件: easymotion/vim-easymotion
 " 可视区域文件定位
-Plug 'easymotion/vim-easymotion'
-" 成对编辑, 比如修改 'xxx' xxx 两边的单引号
-Plug 'tpope/vim-surround'
-" ds 删除成对内容
-" cs 修改成对内容
-" ys 添加成对内容
-" ys iw " 给 xxx 添加双引号
-" cs " ' xxx 的两边的 双引号变成单引号
-" cs ( ] xxx 两边的圆括号变成方括号
-" ds '  删除xxx两边的单引号
+" ss 进入当前可视区搜索字符, 然后选择要跳转的到的字符
 
-" 模糊搜索
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+" 插件: junegunn/fzf,  
+" 模糊搜索 
 " Ag [PATTERN] 模糊搜索字符串, 依赖brew install the_silver_searcher
 " Files [PATH] 模糊搜索目录
 " Ag duck 搜索 duck Ctrl + [jk] 上下移动, 可以继续精准搜索
 " Files . 搜索当前目录, 然后输入模糊匹配的字符串
 
-" 多文件批量搜索替换
-Plug 'brooth/far.vim'
+" 插件: brooth/far.vim
+" 多文件批量搜索替换 
 " Far foo bar **/*.py  查找 ** 上级目录, *.py 当前目录下所有.py文件 中 foo 替换为 bar, 会有预览, 检查替换内容 [jk] 上下翻动, q 退出预览
 " Fardo  执行替换
 
+" 插件: kien/ctrlp.vim
 " 超级搜索
-Plug 'kien/ctrlp.vim'
 " c-p查找, 然后ctrl + [jk] 上下移动, enter确认打开
+
 " vim自带的查找
 " :vim /patern/ ** | copen 当前目录下及子目录所有文件
 " :vim /patern/ * | copen 当前目录下的
@@ -52,14 +33,80 @@ Plug 'kien/ctrlp.vim'
 " 当前目录下ui和test文件夹下及子目录的所有文件
 " :vim /patern/ ./ui/** ./test/**| copen
 " 查找替换 :%s/old/new/gc
-" :ls 显示已经打开的文件, 会显示文件号，然后 :b文件号，就完成了文件切换
+"
+" :ls 显示已经打开的文件, 会显示文件号，然后 :b文件号，就完成了文件切换, :b xxx , 直接输入名字 tab 补全也可以跳转文件
+" 在文件之间切换 :bn	下一个文件, :bp	上一个文件
 
-" 在文件之间切换
-" :bn	下一个文件
-" :bp	上一个文件
+" 插件: lfv89/vim-interestingwords
+" 高亮显示代码
+"Highlight with <Leader>k
+"Navigate highlighted words with n and N
+"Clear every word highlight with <Leader>K throughout the buffer
+
+" 插件: sbdchd/neoformat
+" 代码格式化
+" :Neoformat 就自动格式化文件
+
+" 快速注释, 或可视化选择, 然后注释
+" <leader> + c + i 快速注释和反注释
+
+" 插件和快捷键说明 --end
+
+
+" Plug 插件
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+" vim 启动窗口
+Plug 'mhinz/vim-startify'
+
+" 目录树
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+
+" 主题颜色
+"Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+
+" 状态栏
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" 缩进线
+Plug 'Yggdroot/indentLine'
+
+" 代码折叠
+Plug 'tmhedberg/SimpylFold'
+
+" 可视区域文件定位
+Plug 'easymotion/vim-easymotion'
+
+" 成对编辑, 比如修改 'xxx' xxx 两边的单引号
+Plug 'tpope/vim-surround'
+
+" 模糊搜索
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" 多文件批量搜索替换
+Plug 'brooth/far.vim'
+
+" 超级搜索
+Plug 'kien/ctrlp.vim'
 
 " 语法补全, 跳转, 检查等功能
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" 代码大纲
+Plug 'preservim/tagbar'
+
+" 高亮显示代码
+Plug 'lfv89/vim-interestingwords'
+
+" 代码格式化
+Plug 'sbdchd/neoformat'
 
 
 " 在此之前添加插件
@@ -70,9 +117,10 @@ let mapleader='\'
 " \ + c + i 快速注释和反注释
 
 " 主题
-set background=light
-"set background=dark
-colorscheme solarized
+"set background=light
+set background=dark
+"colorscheme solarized
+colorscheme gruvbox
 
 " 代码折叠用SimpylFold配合使用, za折叠和取消折叠
 set foldmethod=indent
@@ -85,6 +133,7 @@ syntax enable  				" 开启语法高亮
 set encoding=utf-8			" 设置编码
 set nocompatible        	" 去掉vi的一致性
 set number   				" 显示行号
+set rnu 					" 设置相对行号
 "set nowrap    				" 设置不折行
 set fileformat=unix     	" 设置以unix的格式保存文件
 set smartindent    			" 智能选择对齐方式
@@ -129,7 +178,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme='solarized'
+"let g:airline_theme='solarized'
+let g:airline_theme='gruvbox'
 
 " 窗口移动
 nnoremap <C-J> <C-W>j
@@ -229,6 +279,10 @@ function! s:show_documentation()
     call CocActionAsync('doHover')
   endif
 endfunction
+
+" tagbar 代码大纲
+nnoremap <leader>t :TagbarToggle<CR>
+
 
 
 

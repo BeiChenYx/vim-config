@@ -115,3 +115,8 @@ dmypy.json
 .pyre/
 
 *.vim
+.vscode
+.DS_Store
+*.app
+.idea/
+
