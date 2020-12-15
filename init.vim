@@ -84,7 +84,7 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'easymotion/vim-easymotion'
 
 " 成对编辑, 比如修改 'xxx' xxx 两边的单引号
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
 
 " 模糊搜索
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -150,6 +150,7 @@ set cursorcolumn        	" 突出显示当前列
 set autoindent          	" 自动缩进
 set tw=100					" 设置一行100个字符设置
 set helplang=cn 			" 帮助系统设置为中文
+set mouse=a 				" 开启鼠标模式
 
 " NERDTree配置
 " 开启和关闭树"
@@ -166,7 +167,6 @@ let NERDTreeWinSize=30
 " 显示隐藏文件
 let NERDTreeShowHidden=1
 
-" gt后一个标签 gT前一个标签
 " ctrl + w + r 切换窗口顺序
 
 "缩进指示线"
@@ -260,13 +260,17 @@ endif
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" 前一个诊断，后一个诊断
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+" 定义
 nmap <silent> gy <Plug>(coc-type-definition)
+" 跳到实现
 nmap <silent> gi <Plug>(coc-implementation)
+" 所有引用
 nmap <silent> gr <Plug>(coc-references)
 
 " Use <leader>h to show documentation in preview window.
