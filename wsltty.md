@@ -7,3 +7,7 @@
 关于粘贴问题在wsltty中打开 选项 - keys 中选择ctrl + shift + letter shortcuts 选项即可。
 
 关于鼠标形状配置在 选项 - Looks Cursor中，选择 Block即可。
+
+vim的寄存器复制到windows中的寄存器:
+
+> :w !clip.exe
