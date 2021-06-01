@@ -69,6 +69,7 @@ Plug 'scrooloose/nerdcommenter'
 " 主题颜色
 "Plug 'altercation/vim-colors-solarized'
 Plug 'morhetz/gruvbox'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 
 " 状态栏
 Plug 'vim-airline/vim-airline'
@@ -121,6 +122,7 @@ let mapleader='\'
 set background=dark
 "colorscheme solarized
 colorscheme gruvbox
+"colorscheme dracula
 
 " 代码折叠用SimpylFold配合使用, za折叠和取消折叠
 set foldmethod=indent
@@ -154,7 +156,7 @@ set mouse=a 				" 开启鼠标模式
 
 " NERDTree配置
 " 开启和关闭树"
-nnoremap <C-\> :NERDTreeToggle<CR>
+nnoremap <leader>b :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 " <leader> f 找到文件在目录中的位置, <C-W> p 跳转回来
 let NERDTreeChDirMode=1
@@ -168,6 +170,7 @@ let NERDTreeWinSize=30
 let NERDTreeShowHidden=1
 
 " ctrl + w + r 切换窗口顺序
+" ctrl + w + p/n 切换为上个窗口或下个窗口
 
 "缩进指示线"
 let g:indentLine_char='|'
@@ -180,6 +183,7 @@ let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'default'
 "let g:airline_theme='solarized'
 let g:airline_theme='gruvbox'
+"let g:airline_theme='dracula'
 
 " 窗口移动
 nnoremap <C-J> <C-W>j
