@@ -59,6 +59,10 @@
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+
+" vim 中文文档
+Plug 'yianwillis/vimcdoc'
+
 " vim 启动窗口
 Plug 'mhinz/vim-startify'
 
